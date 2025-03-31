@@ -1,10 +1,10 @@
 /* eslint-disable jsx-a11y/click-events-have-key-events,jsx-a11y/no-static-element-interactions */
 
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import {Link} from "react-router";
 import assets, {heroCounts}  from '../assets';
 import CreativeCommons from '../components/CreativeCommons';
-import PATHS from '../routes/paths';
+import PATHS from '../paths/paths';
 import Bulma from '../components/Bulma';
 import config from '../config.json';
 import HomeNewsList from '../components/HomeNewsList';
@@ -125,7 +125,7 @@ const Home = () => {
                 style={{ width: '100%', maxWidth: '790px' }}
               />
             </Bulma.C>
-            
+
           </Bulma.Columns>
         </Bulma.Hero.Body>
       </Bulma.Hero>
@@ -218,7 +218,7 @@ const Home = () => {
               </LinkExternal>
               <LinkExternal className='ext-as-int-link' to='https://elixir-europe.org/platforms/interoperability/rirs'>
                 <img src={imagePath(`/logo/ELIXIR-rir-logo.png`)} alt='ELIXIR Recommended Interoperability Resources Logo' width='89' height='70' />
-              </LinkExternal>  
+              </LinkExternal>
             </div>
             <div className='resource-links'>
               Bgee have been recognised as a&nbsp;
