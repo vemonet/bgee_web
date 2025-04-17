@@ -22,7 +22,7 @@
     "@react-router/serve": "^7.5.0",
     "@sib-swiss/sparql-editor": "^0.2.11",
     "axios": "^1.8.4",
-    "bulma": "^0.9.4",
+    "bulma": "^1.0.3",
     "d3": "^7.9.0",
     "isbot": "^5",
     "lucide-react": "^0.488.0",

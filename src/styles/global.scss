@@ -1,13 +1,89 @@
 @charset "utf-8";
 
+@use 'bulma/sass/utilities';
+@use 'bulma/sass/form';
+@use 'bulma/sass/grid';
+@use 'bulma/sass/helpers';
+@use 'bulma/sass/layout/footer';
+@use 'bulma/sass/layout/section';
+@use 'bulma/sass/helpers/flexbox';
+@use 'bulma/sass/helpers/visibility';
+@use "bulma/sass/components/message";
+@use 'bulma/sass/components/navbar';
+@use "bulma/sass/elements/button";
+@use 'bulma/sass/elements/content';
+@use 'bulma/sass/elements/icon';
+@use 'bulma/sass/elements/image';
+@use 'bulma/sass/elements/notification';
+@use 'bulma/sass/elements/table';
+@use 'bulma/sass/elements/title';
+// @use 'bulma/sass/elements/container';
+// @use 'bulma/sass/elements/other';
+
+@use 'bulma/sass/utilities/initial-variables';
+@use 'bulma/sass/utilities/derived-variables';
+@use 'bulma/sass/utilities/functions';
+
+// // Define color scheme variables for Bulma v1+
+// @use 'bulma/sass/utilities/schemes' with (
+//   $scheme-main: #ffffff,
+//   $scheme-main-bis: #fafafa,
+//   $scheme-main-ter: #f5f5f5,
+//   $scheme-invert: #0a0a0a,
+//   $scheme-invert-bis: #121212,
+//   $scheme-invert-ter: #242424,
+//   $scheme-light: #f5f5f5,
+//   $scheme-dark: #363636
+// );
+
+@use "bulma/sass/base";
+@use "bulma/sass/themes";
+@use 'bulma/bulma';
+
+@import url('https://fonts.cdnfonts.com/css/cabinet-grotesk?styles=134960,134955,134954');
+
+// // Define Bulma color variables
+// $primary: #e2011b; // This is already defined later in your file
+// $text: #111111; // This is already defined later in your file
+
+// // Create color mappings for text colors
+// $text-colors: (
+//   "primary": $primary,
+//   "link": $link,
+//   "text": $text
+// );
+
+// // Generate text color helper classes
+// @each $name, $color in $text-colors {
+//   .has-text-#{$name} {
+//     color: $color !important;
+//   }
+// }
+
+// // Force light mode by explicitly setting the color scheme
+// html {
+//   color-scheme: light;
+//   background-color: #ffffff;
+// }
+
+// // Ensure cards and other elements have the correct background color
+// .card {
+//   background-color: #ffffff;
+// }
+
+// // Ensure all color-mode-specific selectors are overridden
+// @media (prefers-color-scheme: dark) {
+//   :root {
+//     color-scheme: light;
+//   }
+// }
+
+
 $size-7: 12px !default;
 $size-6: 1rem !default;
 $size-5: 1.1rem !default;
 $size-4: 1.2rem !default;
 $size-3: 1.5rem !default;
-@import '../../node_modules/bulma/sass/utilities/initial-variables';
-@import '../../node_modules/bulma/sass/utilities/functions';
-@import url('https://fonts.cdnfonts.com/css/cabinet-grotesk?styles=134960,134955,134954');
 
 $archive: false;
 
@@ -89,7 +165,6 @@ code {
 /*
  * navbar style
  */
-@import '../../node_modules/bulma/sass/utilities/derived-variables';
 $custom-colors: (
   'bgee-inverted': (
     $dark-bg-color,
@@ -98,7 +173,8 @@ $custom-colors: (
 );
 //$custom-colors: ("bgee-link": ($link, $light-color));
 //$custom-colors: ("bgee-inverted": ($dark-bg-color, $light-color), "bgee-link": ($link, $light-color));
-$colors: map-merge($colors, $custom-colors);
+// $colors: map-merge($colors, $custom-colors);
+$colors: $custom-colors;
 
 #bgee-complete-menu {
   .navbar-item {
@@ -481,27 +557,6 @@ span.icon {
   transition: 0.35s;
 }
 
-@import '../../node_modules/bulma/sass/base/all';
-@import '../../node_modules/bulma/sass/utilities/all';
-@import '../../node_modules/bulma/sass/components/navbar';
-@import '../../node_modules/bulma/sass/elements/container';
-@import '../../node_modules/bulma/sass/elements/content';
-@import '../../node_modules/bulma/sass/elements/icon';
-@import '../../node_modules/bulma/sass/elements/image';
-@import '../../node_modules/bulma/sass/elements/notification';
-@import '../../node_modules/bulma/sass/elements/other';
-@import '../../node_modules/bulma/sass/elements/table';
-@import '../../node_modules/bulma/sass/elements/title';
-@import '../../node_modules/bulma/sass/form/all';
-@import '../../node_modules/bulma/sass/grid/all';
-@import '../../node_modules/bulma/sass/helpers/all';
-@import '../../node_modules/bulma/sass/layout/footer';
-@import '../../node_modules/bulma/sass/layout/section';
-@import '../../node_modules/bulma/sass/helpers/flexbox';
-@import '../../node_modules/bulma/sass/helpers/visibility';
-
-@import '../../node_modules/bulma/bulma';
-
 .color-primary {
   color: $primary !important;
 }
@@ -522,7 +577,8 @@ span.icon {
   border-radius: 5px;
   &:hover {
     background-color: $link;
-    color: $background;
+    // color: $background;
+    color: $light-color;
   }
 }
 
@@ -624,7 +680,7 @@ a.image.cc {
   z-index: 99;
   padding: 2rem;
   background: rgba(0, 0, 0, 0.9);
-  @include desktop {
+  @media screen and (min-width: $desktop) {
     display: flex;
   }
   .left {
@@ -996,7 +1052,7 @@ label.label {
     cursor: pointer;
     margin: 2px 0;
     &:hover {
-      background-color: $white;
+      background-color: $light-color;
       color: $primary;
       font-weight: 600;
       margin: 1px 0;
